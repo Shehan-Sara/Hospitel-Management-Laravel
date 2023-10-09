@@ -36,7 +36,7 @@ Route::prefix('doctor')->middleware('auth', 'isAdmin')->group(function () {
 Route::prefix('patient')->middleware('auth')->group(function () {
     Route::get('/dashboard', [Patien_Controller::class, 'patientDB'])->name('patientDB');
     Route::get('/makeappoiment', [Patien_Controller::class, 'makeappoiment'])->name('makeappoiment');
-    Route::get('/profile', [Patien_Controller::class, 'patientprofile'])->name('patientprofile');
+    Route::post('/profile', [Patien_Controller::class, 'patientprofile'])->name('patientprofile');
 });
 
 Route::get('/error', function () {

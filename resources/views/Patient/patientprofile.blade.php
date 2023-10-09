@@ -19,11 +19,11 @@
               <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
                 class="rounded-circle img-fluid" style="width: 150px;">
               <h5 class="my-3">{{ Auth::user()->name }}</h5>
-              <p class="text-muted mb-1">index</p>
-              <p class="text-muted mb-4">dep</p>
+              <p class="text-muted mb-1">{{ $patient->type }}</p>
+              <p class="text-muted mb-4">{{ $patient->status }}</p>
               <div class="d-flex justify-content-center mb-2">
-                <button type="button" class="btn btn-primary">View Subjects</button>
-                <button type="button" class="btn btn-outline-primary ms-1">Message</button>
+                <a type="button" class="btn btn-primary" href="{{ route('patientDB') }}">Back to Home</a>
+                <a type="button" class="btn btn-outline-primary ms-1">Edit</a>
               </div>
             </div>
           </div>
@@ -61,37 +61,19 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-3">
-                  <p class="mb-0">Full Name</p>
+                  <p class="mb-0">Your Email</p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0"> show fname</p>
+                  <p class="text-muted mb-0"> {{ $patient->mail }}</p>
                 </div>
               </div>
               <hr>
               <div class="row">
                 <div class="col-sm-3">
-                  <p class="mb-0">Email</p>
+                  <p class="mb-0">Contact Number</p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">show mail</p>
-                </div>
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">NIC</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">show nic</p>
-                </div>
-              </div>
-              <hr>
-              <div class="row">
-                <div class="col-sm-3">
-                  <p class="mb-0">Mobile</p>
-                </div>
-                <div class="col-sm-9">
-                  <p class="text-muted mb-0">show contact</p>
+                  <p class="text-muted mb-0">{{ $patient->contact }}</p>
                 </div>
               </div>
               <hr>
@@ -100,7 +82,25 @@
                   <p class="mb-0">Address</p>
                 </div>
                 <div class="col-sm-9">
-                  <p class="text-muted mb-0">Show Address</p>
+                  <p class="text-muted mb-0">{{ $patient->address }}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">NIC</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{ $patient->nic }}</p>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3">
+                  <p class="mb-0">Blood Group</p>
+                </div>
+                <div class="col-sm-9">
+                  <p class="text-muted mb-0">{{ $patient->bloodG }}</p>
                 </div>
               </div>
             </div>

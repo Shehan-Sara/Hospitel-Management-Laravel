@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Patient;
 use Illuminate\Http\Request;
 
 class Patien_Controller extends Controller
@@ -16,8 +17,14 @@ class Patien_Controller extends Controller
         return view('Patient.makeappoiment');
     }
 
-    public function patientprofile()
+    public function patientprofile(Request $request)
     {
-        return view('Patient.patientprofile');
+        $id = intval($request->input('id'));
+        $num = $id;
+
+        $patient = Patient::where('user_id', $num)->firstOrFail();
+
+        return view('Patient.patientprofile', compact('patient'));
+
     }
 }

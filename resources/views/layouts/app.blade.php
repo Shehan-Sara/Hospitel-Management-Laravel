@@ -73,10 +73,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    
-                                    <a class="dropdown-item" href="{{ route('patientprofile') }}">
+                                    <form action="{{ route('patientprofile') }}" method="post">
+                                        @csrf
+                                    <button class="dropdown-item" href="{{ route('patientprofile') }} " value="{{ Auth::user()->id }} " name="id" type="number">
                                        Profile
-                                    </a>
+                                    </button>
+                                </form>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
